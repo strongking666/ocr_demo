@@ -1,0 +1,155 @@
+/* static/css/style.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align to top for scrollability */
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    /* Max width for larger screens */
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#imageUpload {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px dashed #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#imageUpload:hover {
+    border-color: #2980b9;
+}
+
+
+#imageEditor {
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    display: inline-block;
+    /* So it wraps the content */
+    position: relative;
+    /* For canvas positioning */
+    max-width: 100%;
+    /* Ensure it doesn't overflow container */
+    overflow: auto;
+    /* Add scrollbars if image is too big */
+}
+
+#imageContainer {
+    position: relative;
+    /* Crucial for absolute positioning of canvas */
+    display: inline-block;
+    /* Shrink to content */
+    max-width: 100%;
+    line-height: 0;
+    /* Remove extra space below img */
+}
+
+#ocrImage {
+    display: block;
+    /* Removes extra space below image */
+    max-width: 100%;
+    /* Responsive image */
+    max-height: 70vh;
+    /* Limit height to prevent excessive scrolling */
+    user-select: none;
+    /* Prevent image dragging/selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    /* z-index for image is not strictly necessary if canvas has a higher one,
+but can be set to 1 for explicit layering if needed. */
+    /* z-index: 1; */
+}
+
+#selectionCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Will be set by JS to match image */
+    height: 100%;
+    /* Will be set by JS to match image */
+    pointer-events: auto;
+    /* Allow mouse events on canvas for selection */
+    cursor: cell;
+    /* Indicate selection capability */
+    z-index: 10;
+    /* Ensure canvas is on top of the image for highlights to be visible */
+}
+
+#statusMessages {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+    min-height: 1.5em;
+    /* Reserve space */
+}
+
+#statusMessages .error {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+#statusMessages .success {
+    color: #2ecc71;
+}
+
+#controls {
+    margin-top: 20px;
+}
+
+#copySelectedText {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#copySelectedText:hover {
+    background-color: #2980b9;
+}
+
+#copySelectedText:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#selectedTextPreview {
+    font-weight: bold;
+    color: #2c3e50;
+    display: inline-block;
+    /* Or block for new line */
+    margin-left: 10px;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+}
