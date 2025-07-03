@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR 词语选择器 (Web版)</title> <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>图像OCR词语选择</h1> <input type="file" id="imageUpload" accept="image/*">
+        <div id="statusMessages"></div>
+
+        <div id="imageEditor">
+            <div id="imageContainer">
+                <img id="ocrImage" src="#" alt="请上传图像">
+                <canvas id="selectionCanvas"></canvas>
+            </div>
+        </div>
+        
+        <div id="controls">
+            <button id="copySelectedText" title="复制选中文字 (Ctrl+C / Cmd+C 也可以尝试)">复制选中文字</button>
+            <p>选中文字: <span id="selectedTextPreview">-</span></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
